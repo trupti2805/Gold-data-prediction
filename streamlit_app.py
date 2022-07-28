@@ -12,27 +12,31 @@ from statsmodels.tsa.holtwinters import ExponentialSmoothing
 import warnings
 df=pd.read_csv(r"C:\Users\Trupti Kendre\Downloads\Gold_data.csv")
 
+hwmModel=ExponentialSmoothing(df['price'],seasonal='mul',trend='add',seasonal_periods=24).fit()
+
+
+
+def main():
+    st.title("Gold Price Predictor")
+    st.info("Let us predict the Price of GOLD for the Future")
+  
+    s = datetime.date(2022,5,24)
+    e = st.date_input("Enter the ending Date to Predict the Gold Prices")
+    diff=( (e-s).days+1)
+   
+    
+   
+    if st.button("PREDICT"):
+        index_future_dates=pd.date_range(start= s ,end= e)
+        pred=hwmModel.forecast(diff).rename('Price')
+        pred.index=index_future_dates
+        df = pd.DataFrame(pred)
+        
+        st.dataframe(df)
+        
+        st.line_chart(df)
+        
 
   
     
-    st.sidebar.header('User Input Parameters')
-    def user_input_features():
-        CLPRICE=st.sidebar.selectbox('Price',('1','1','1'))
-        data={'CLPRICE':CLPRICE}
-  
-     features = pd.DataFrame(data,index=[0])
-     return features
-    df = user_input_features()
-st.subheader('User Input parameters')
-st.write(df)
-# load the model from disk
-loaded_model = load(open('rmse_wf.pkl', 'rb'))
-
-prediction = loaded_model.predict(df)
-prediction_proba = loaded_model.predict_proba(df)
-
-st.subheader('Predicted Result')
-st.write('Yes' if prediction_proba[0][1] > 0.5 else 'No')
-
-st.subheader('Prediction Probability')
-st.write(prediction_proba)
+   
