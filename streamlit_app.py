@@ -13,7 +13,7 @@ import warnings
 df=pd.read_csv(r"C:\Users\Trupti Kendre\Downloads\Gold_data.csv")
 
 
-      st.tittle('Model Deployment: Forecasting')
+  
     
     st.sidebar.header('User Input Parameters')
     def user_input_features():
