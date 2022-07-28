@@ -34,5 +34,5 @@ def main():
         
         st.line_chart(df)
         
-        if __name__ == '__main__':
-    main() 
+    if __name__ == '__main__':
+         main() 
