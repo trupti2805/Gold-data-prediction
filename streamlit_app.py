@@ -6,7 +6,7 @@ from pickle import load
 
 import pandas as pd
 
-from statsmodels.tsa.holtwinters import ExponentialSmoothing
+
 
 import warnings
 df=pd.read_csv(r"C:\Users\Trupti Kendre\Downloads\Gold_data.csv")
