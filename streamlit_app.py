@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import warnings
-import matpltlib.pyplot as plt
+
 
 from statsmodels.tsa.arima.model import ARIMA
 import statsmodels.api as sm
