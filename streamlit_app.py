@@ -21,7 +21,7 @@ gold_new=gold_new.set_index('date', drop =True)
 import statsmodels.api as sn
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
-Final_ARIMA_Model=ARIMA(gold_new['price']. order=(3,1,1)).fit()
+Final_ARIMA_Model=ARIMA(gold['price']. order=(3,1,1)).fit()
 
 model_fore= Final_ARIMA_Model.forecast(30)
 model_fore= pd.DataFrame(model_fore)
