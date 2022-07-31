@@ -11,7 +11,6 @@ warnings.filterwarnings('ignore')
 
 st.header("***Forecasting gold price for upcoming 30 days***")
 
-days=st.slider('No of days forecast required(max of 100 days)'.min_value = 1, max_value = 100
 
 st.write('This model is forecasts Gold Price for upcoming days')
 
