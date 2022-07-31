@@ -19,9 +19,22 @@ gold_new=gold_new.set_index('date', drop =True)
 ##model
 import statsmodels.api as sn
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
-
+gold_validation = gold['price'][1746:]
 model=ARIMA(x_train,order=(3,1,1))
 
-model_fore= Final_ARIMA_Model.forecast(30)
-model_fore= pd.DataFrame(model_fore)
-model_fore.columns=[('forecast')]
+model_fit=model.fit(disp=0)
+print(model_fit.summary())
+fc, se, conf=gold_new.forecast(436,alpha=0.05)
+
+def forecast_accuracy(forecast,actual):
+    mape=(np.mean(np.abs(forecast - actual)/np.abs(actual))*100).round(2)
+    rmse=np.sqrt(((forecast-actual)**2).mean())
+    return({'Mean Absolute Percentage Error(%) ':mape,
+           'Root Mean Squared Error':rmse})
+forecast_accuracy(fc, gold_validation.values)
+
+forecast=model_fit.forecast(steps=30)[0]
+model_fit.plot_predict(1,648)
+plt.show()
+
+pd.DataFrame(forecast)
