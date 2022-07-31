@@ -10,7 +10,7 @@ st.header("***Forecasting gold price for upcoming 30 days***")
 
 
 st.write('This model is forecasts Gold Price for upcoming days')
-gold= pd.read_csv(r"C:\Users\Trupti Kendre\Downloads\Gold_data.csv")
+
 
 gold_new=gold_new.set_index('date', drop =True)
 
