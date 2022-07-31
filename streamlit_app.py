@@ -4,7 +4,7 @@ import numpy as np
 import warnings
 
 
-from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.tsa.arima_model import ARIMA
 import statsmodels.api as sm
 warnings.filterwarnings('ignore')
 
