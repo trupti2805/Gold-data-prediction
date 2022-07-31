@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import warnings
 
-import statsmodels.api as sm
+
 warnings.filterwarnings('ignore')
 
 st.header("***Forecasting gold price for upcoming 30 days***")
