@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.metrics import mean_absolute_percentage_errror
 import warnings
 import matpltlib.pyplot as plt
-st.set_option("deprecation.showPyplotGlobalUse',False)
+
 from statsmodels.tsa.arima.model import ARIMA
 import statsmodels.api as sm
 warnings.filterwarnings('ignore')
