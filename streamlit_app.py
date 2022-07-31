@@ -15,7 +15,7 @@ st.write('This model is forecasts Gold Price for upcoming days')
 
 
 ##model
-gold_validation = gold['price'][1746:]
+
 model=ARIMA(x_train,order=(3,1,1))
 
 model_fit=model.fit(disp=0)
