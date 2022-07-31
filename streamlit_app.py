@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.metrics import mean_absolute_percentage_errror
 import warnings
 import matpltlib.pyplot as plt
 
