@@ -29,10 +29,3 @@ model_fore.columns=[('forecast')]
 
 #plot
 st.line_chart(data=SARIMA_fore, width=0,height=0, use_container_width=True
-
-
-   
-
-    
-   
-   
