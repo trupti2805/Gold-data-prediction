@@ -15,8 +15,6 @@ st.write('This model is forecasts Gold Price for upcoming days')
 
 
 ##model
-import statsmodels.api as sn
-from statsmodels.tsa.holtwinters import ExponentialSmoothing
 gold_validation = gold['price'][1746:]
 model=ARIMA(x_train,order=(3,1,1))
 
