@@ -30,8 +30,9 @@ model_fore.columns=[('forecast')]
 #plot
 st.line_chart(data=SARIMA_fore, width=0,height=0, use_container_width=True
 
-bt=st.button("Forecast")
-if bt is True
+forecast=model_fit.forecast(steps=30)[0]
+model_fit.plot_predict(1,648)
+plt.show()
    st.write(model_fore)
    plt.figure(figsize=(16,8))
    plt.plot(model_fore['forecast'])
