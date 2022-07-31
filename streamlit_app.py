@@ -26,6 +26,3 @@ model=ARIMA(x_train,order=(3,1,1))
 model_fore= Final_ARIMA_Model.forecast(30)
 model_fore= pd.DataFrame(model_fore)
 model_fore.columns=[('forecast')]
-
-#plot
-st.line_chart(data=SARIMA_fore, width=0,height=0, use_container_width=True
