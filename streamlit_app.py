@@ -31,10 +31,7 @@ model_fore.columns=[('forecast')]
 st.line_chart(data=SARIMA_fore, width=0,height=0, use_container_width=True
 
 
-   st.write(model_fore)
-   plt.figure(figsize=(16,8))
-   plt.plot(model_fore['forecast'])
-   st.pyplot()
+   
 
     
    
