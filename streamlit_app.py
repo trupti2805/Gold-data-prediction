@@ -1,41 +1,43 @@
 import streamlit as st
-import datetime
-from pickle import dump
-from pickle import load
-
-
 import pandas as pd
-
-
-
+import numpy as np
+from sklearn.metrics import mean_absolute_percentage_errror
 import warnings
-df=pd.read_csv(r"C:\Users\Trupti Kendre\Downloads\Gold_data.csv")
+import matpltlib.pyplot as plt
+st.set_option("deprecation.showPyplotGlobalUse',False)
+from statsmodels.tsa.arima.model import ARIMA
+import statsmodels.api as sm
+warnings.filterwarnings('ignore')
 
-hwmModel=ExponentialSmoothing(df['price'],seasonal='mul',trend='add',seasonal_periods=24).fit()
+st.header("***Forecasting gold price for upcoming 30 days***")
 
+days=st.slider('Noofdays forecast required(max of 100 days)'.min_value = 1, max_value = 100
 
+st.write('This model is forecasts Gold Price for upcoming days')
 
-def main():
-    st.title("Gold Price Predictor")
-    st.info("Let us predict the Price of GOLD for the Future")
-  
-    s = datetime.date(2022,5,24)
-    e = st.date_input("Enter the ending Date to Predict the Gold Prices")
-    diff=( (e-s).days+1)
-   
+gold_new=pd.read_csv(r"C:\Users\Trupti Kendre\Downloads\Gold_data.csv", header=0, index_col=0,squeeze=True,parse_dates=True)
+gold_new=gold_new.set_index('date', drop =True)
+
+##model
+import statsmodels.api as sn
+from statsmodels.tsa.holtwinters import ExponentialSmoothing
+
+Final_ARIMA_Model=ARIMA(gold_new['price']. order=(3,1,1)).fit()
+
+model_fore= Final_ARIMA_Model.forecast(30)
+model_fore= pd.DataFrame(model_fore)
+model_fore.columns=[('forecast')]
+
+#plot
+st.line_chart(data=SARIMA_fore, width=0,height=0, use_container_width=True
+
+bt=st.button("Forecast")
+if bt is True
+   st.write(model_fore)
+   plt.figure(figsize=(16,8))
+   plt.plot(model_fore['forecast'])
+   st.pyplot()
+
     
    
-    if st.button("PREDICT"):
-        index_future_dates=pd.date_range(start= s ,end= e)
-        pred=hwmModel.forecast(diff).rename('Price')
-        pred.index=index_future_dates
-        df = pd.DataFrame(pred)
-        
-        st.dataframe(df)
-        
-        st.line_chart(df)
-        
-
-  
-    
    
