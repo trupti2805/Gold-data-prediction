@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from statsmodels.tsa.arima_model import ARIMA
+
 import warnings
 warnings.filterwarnings('ignore')
 
