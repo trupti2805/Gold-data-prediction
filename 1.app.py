@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from statsmodels.tsa.arima.model import ARIMA
+import matplotlib.pyplot as plt 
 
 
 # Title and sidebar
